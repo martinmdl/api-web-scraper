@@ -1,5 +1,6 @@
-### to do
-- crear endpoint con express
-- integrar script de links
+## to do
+- create endpoint using express
+- use links from the given script
 
+## functionality
 
