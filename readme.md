@@ -1,7 +1,5 @@
 ## to do
-- extend the stop-words list
-- create a REST endpoint using express
-- use URLs from the given script
+- use URLs from the given script (POST?)
 - avoid fetching identical URLs by using a cache
 - graphic the word-cloud
 - enable product sets inputs
