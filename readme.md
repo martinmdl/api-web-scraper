@@ -1,6 +1,10 @@
 ## to do
-- create endpoint using express
-- use links from the given script
+- extend the stop-words list
+- create a REST endpoint using express
+- use URLs from the given script
+- avoid fetching same URLs by using a cache
+- graphic the word-cloud
+- enable product sets inputs
 
 ## functionality
 ```
