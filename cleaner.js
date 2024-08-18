@@ -2,9 +2,9 @@ import webScraper from './scraper.js';
 
 const stopwords = /\b(the|any|while|this|that|those|these|about|is|at|from|it|with|and|a|in|for|of|to|by|on)\b/gi;
 
-export default async function textCleaner() {
+export default async function textCleaner(url) {
     
-    const originalText = await webScraper();
+    const originalText = await webScraper(url);
 
     const cleanedText = originalText
         .replace(/[^\w\s]/g, '') // punctuation
@@ -17,13 +17,6 @@ export default async function textCleaner() {
     
 }
 
-const texto = await textCleaner();
+// const texto = await textCleaner();
 
-console.log(texto);
-
-
-
-
-
-
-
+// console.log(texto);

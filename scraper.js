@@ -1,10 +1,10 @@
 import { launch } from "puppeteer";
 
-const url = 'https://www.amazon.com/gp/product/B00VVOCSOU';
+const url_test = 'https://www.amazon.com/gp/product/B00VVOCSOU';
 const selector1 = '#productDescription.a-section.a-spacing-small';
 const selector2 = 'p';
 
-export default async function webScraper() {
+export default async function webScraper(url) {
 
     const browser = await launch({ args: ['--lang=en-US'] });
     const page = await browser.newPage();
