@@ -1,9 +1,9 @@
 #!/bin/sh
 
-SERVER=$localhost
-PORT=$3000
-PARAM=$productUrl
-SLEEP_TIME=$6
+SERVER=$1
+PORT=$2
+PARAM=$3
+SLEEP_TIME=$4
 
 curl -X POST "$SERVER:$PORT?$PARAM=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fproduct%2FB00SMBFZNG"
 sleep $SLEEP_TIME
