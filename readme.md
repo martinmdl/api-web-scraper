@@ -2,7 +2,7 @@
 - ~~scrape with Puppeteer~~
 - ~~clean description using JS regex~~
 - ~~run an endpoint with Express~~
-- use URLs from the given script (POST?)
+- use URLs from the given script
 - avoid fetching identical URLs by using a cache
 - graphic the word-cloud
 - enable product sets inputs
@@ -14,5 +14,6 @@
 ```
 npm install
 npm start
+./three_requests.sh localhost 3000 productUrl 6
 ```
 
