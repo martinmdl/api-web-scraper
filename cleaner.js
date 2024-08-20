@@ -1,5 +1,6 @@
 import webScraper from './scraper.js';
 
+const url_test = 'https://www.amazon.com/gp/product/B00VVOCSOU';
 const stopwords = /\b(the|any|while|this|that|those|these|about|is|at|from|it|with|and|a|in|for|of|to|by|on)\b/gi;
 
 export default async function textCleaner(url) {
@@ -17,6 +18,5 @@ export default async function textCleaner(url) {
     
 }
 
-// const texto = await textCleaner();
-
+// const texto = await textCleaner(url_test);
 // console.log(texto);

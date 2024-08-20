@@ -1,9 +1,10 @@
-const { JSDOM } = require('jsdom');
+import { JSDOM } from 'jsdom';
 
-const url = 'https://www.amazon.com/gp/product/B00VVOCSOU'
-const selector = '#productDescription.a-section.a-spacing-small'
+const url_test = 'https://www.amazon.com/gp/product/B00VVOCSOU';
+const selector1 = '#productDescription.a-section.a-spacing-small';
+const selector2 = 'p';
 
-async function scrapeWeb() {
+async function scrapeWeb(url) {
   try {
     
     const response = await fetch(url)
@@ -11,11 +12,12 @@ async function scrapeWeb() {
     const dom = new JSDOM(html);
 
     const document = dom.window.document;
-    const productDescriptionElement = document.querySelector(selector);
+    const productDescriptionDiv = document.querySelector(selector1);
+    const productDescriptionP = productDescriptionDiv.querySelector(selector2);
 
-    if (productDescriptionElement) {
+    if (productDescriptionP) {
 
-      const productDescriptionContent = productDescriptionElement.textContent.trim();
+      const productDescriptionContent = productDescriptionP.textContent.trim();
       console.log(productDescriptionContent);
       
     } else {
@@ -27,4 +29,5 @@ async function scrapeWeb() {
   }
 }
 
-scrapeWeb();
+// const texto = await scrapeWeb(url_test);
+// console.log(texto);

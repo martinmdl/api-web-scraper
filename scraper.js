@@ -1,7 +1,7 @@
 import { launch } from "puppeteer";
 
 const url_test = 'https://www.amazon.com/gp/product/B00VVOCSOU';
-const selector1 = '#productDescription.a-section.a-spacing-small';
+const selector1 = 'div#productDescription.a-section.a-spacing-small';
 const selector2 = 'p';
 
 export default async function webScraper(url) {
@@ -27,3 +27,6 @@ export default async function webScraper(url) {
 
     }
 }
+
+// const texto = await webScraper(url_test);
+// console.log(texto);

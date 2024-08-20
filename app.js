@@ -5,15 +5,20 @@ const api = express();
 const HOST = 'localhost';
 const PORT = 3000;
 
+api.get('/', (req, res) => {
+    res.send('ENVIE UN PRODUCTO DE AMAZON')
+})
+
 api.post('/', (req, res) => {
     const amazonUrl = req.query.productUrl;
     const productDescription = textCleaner(amazonUrl);
     res.send(productDescription);
-    if(amazonUrl) {
-        res.send(`URL RECIBIDA: ${amazonUrl}`);
-    } else {
-        res.status(400).send('URL no encontrada');
-    }
+    // res.send(`URL RECIBIDA: ${amazonUrl}`);
+    // if(amazonUrl) {
+    //     res.send(`URL RECIBIDA: ${amazonUrl}`);
+    // } else {
+    //     res.status(400).send('URL no encontrada');
+    // }
 });
 
 api.listen(PORT, () => console.log(`API running at ${HOST}:${PORT}`));
