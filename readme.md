@@ -3,6 +3,7 @@
 - ~~clean description using JS regex~~
 - ~~run an endpoint with Express~~
 - ~~use URLs from the given script~~
+- store the product descriptions
 - graphic the word-cloud
 - enable product sets inputs
 - avoid fetching identical URLs by using a cache
@@ -11,7 +12,7 @@
 ## functionality
 <img src="https://github.com/user-attachments/assets/026f00b4-ce84-4afc-b032-dd90ec7b5572" />
 
-https://github.com/user-attachments/assets/8cfe8b69-48c2-43bd-ab8a-0e092ca51019
+https://github.com/user-attachments/assets/17127a96-33e7-4ba8-bae2-b7503fa4a189
 
 ## run code
 ```
