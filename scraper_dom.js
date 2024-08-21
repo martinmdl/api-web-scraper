@@ -13,10 +13,10 @@ async function scrapeWeb(url) {
 
     const document = dom.window.document;
     const productDescriptionDiv = document.querySelector(selector1);
-    const productDescriptionP = productDescriptionDiv.querySelector(selector2);
-
-    if (productDescriptionP) {
-
+    
+    if (productDescriptionDiv) {
+      
+      const productDescriptionP = productDescriptionDiv.querySelector(selector2);
       const productDescriptionContent = productDescriptionP.textContent.trim();
       console.log(productDescriptionContent);
       

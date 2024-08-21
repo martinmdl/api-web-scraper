@@ -11,10 +11,10 @@ export default async function webScraper(url) {
     await page.goto(url);
 
     const productDescriptionDiv = await page.$(selector1);
-    const productDescriptionP = await productDescriptionDiv.$(selector2);
-
-    if (productDescriptionP) {
-
+    
+    if (productDescriptionDiv) {
+        
+        const productDescriptionP = await productDescriptionDiv.$(selector2);
         const productDescriptionContent = await productDescriptionP.evaluate(element => element.textContent);
         await browser.close();
         return productDescriptionContent;

@@ -7,16 +7,25 @@ export default async function textCleaner(url) {
     
     const originalText = await webScraper(url);
 
-    const cleanedText = originalText
-        .replace(/[^\w\s]/g, '') // punctuation
-        .replace(/\d+/g, '') // numbers
-        .replace(stopwords, '') // stop words
-        .replace(/\b\w\b/g, '') // one letter words
-        .replace(/\s+/g, ' '); // spaces
+    if (originalText) {
+        
+        const cleanedText = originalText
+            .replace(/[^\w\s]/g, '') // punctuation
+            .replace(/\d+/g, '') // numbers
+            .replace(stopwords, '') // stop words
+            .replace(/\b\w\b/g, '') // one letter words
+            .replace(/\s+/g, ' '); // spaces
+    
+        return cleanedText;
 
-    return cleanedText;
+    } else {
+
+        return null
+
+    }
+
     
 }
 
-// const texto = await textCleaner(url_test);
-// console.log(texto);
+const texto = await textCleaner(url_test);
+console.log(texto);
