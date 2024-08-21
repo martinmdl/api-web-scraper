@@ -7,7 +7,6 @@
 - graphic the word-cloud
 - enable product sets inputs
 - avoid processing identical URLs by using a cache
-
 - increase scraper efficiency
 
 ## functionality
