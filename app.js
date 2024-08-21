@@ -12,13 +12,7 @@ api.get('/', (req, res) => {
 api.post('/', (req, res) => {
     const amazonUrl = req.query.productUrl;
     const productDescription = textCleaner(amazonUrl);
-    res.send(productDescription);
-    // res.send(`URL RECIBIDA: ${amazonUrl}`);
-    // if(amazonUrl) {
-    //     res.send(`URL RECIBIDA: ${amazonUrl}`);
-    // } else {
-    //     res.status(400).send('URL no encontrada');
-    // }
+    res.send(`${productDescription}`);
 });
 
 api.listen(PORT, () => console.log(`API running at ${HOST}:${PORT}`));

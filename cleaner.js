@@ -20,12 +20,11 @@ export default async function textCleaner(url) {
 
     } else {
 
+        console.log('The item was not found');
         return null
 
     }
-
-    
 }
 
-const texto = await textCleaner(url_test);
-console.log(texto);
+// const texto = await textCleaner(url_test);
+// console.log(texto);
