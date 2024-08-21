@@ -11,6 +11,8 @@
 ## functionality
 <img src="https://github.com/user-attachments/assets/026f00b4-ce84-4afc-b032-dd90ec7b5572" />
 
+https://github.com/user-attachments/assets/8cfe8b69-48c2-43bd-ab8a-0e092ca51019
+
 ## run code
 ```
 npm install
