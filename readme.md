@@ -1,12 +1,13 @@
 ## to do
-- ~~scrape with Puppeteer~~
+- ~~scrape paragraph with Puppeteer~~
 - ~~clean description using JS regex~~
 - ~~run an endpoint with Express~~
 - ~~use URLs from the given script~~
-- store the product descriptions
+- store the product descriptions (singleton/cache)
 - graphic the word-cloud
 - enable product sets inputs
-- avoid fetching identical URLs by using a cache
+- avoid processing identical URLs by using a cache
+
 - increase scraper efficiency
 
 ## functionality
