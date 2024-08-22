@@ -1,19 +1,26 @@
 import express from 'express';
-import textCleaner from './cleaner.js';
+import cleanText from './cleaner.js';
+import scrapeWeb from './scraper.js';
+import countWordOccurrences from './wordcounter.js';
 
 const api = express();
-const HOST = 'localhost';
-const PORT = 3000;
 
 api.get('/', (req, res) => {
-    res.send('ENVIE UN PRODUCTO DE AMAZON')
+    res.send('WORKING')
 })
 
-api.post('/', (req, res) => {
+api.post('/', async (req, res) => {
+
     const amazonUrl = req.query.productUrl;
-    const productDescription = textCleaner(amazonUrl);
-    res.send(`${productDescription}`);
+    const originalProductDescription = await scrapeWeb(amazonUrl);
+    const productDescription = cleanText(originalProductDescription);
+    const wordsOccurrences = countWordOccurrences(productDescription);
+    res.send(wordsOccurrences);
+
 });
+
+const HOST = 'localhost';
+const PORT = process.env.PORT || 3000;
 
 api.listen(PORT, () => console.log(`API running at ${HOST}:${PORT}`));
 
