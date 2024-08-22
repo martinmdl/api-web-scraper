@@ -19,10 +19,9 @@ api.post('/', async (req, res) => {
 
 });
 
-const HOST = 'localhost';
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
-api.listen(PORT, () => console.log(`API running at ${HOST}:${PORT}`));
+api.listen(port, () => console.log(`API running at localhost:${port}`));
 
 /******* SCRIPT *******/
 // ./simulateRequests.sh <SERVER> <PORT> <PARAM> <SLEEP_TIME>

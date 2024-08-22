@@ -1,8 +1,8 @@
 {
-  "name": "scraper-app",
+  "name": "web-scraper",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "backend jr project",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
   },
@@ -11,6 +11,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "puppeteer": "^23.1.0",
     "stopword": "^3.1.1"
