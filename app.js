@@ -1,6 +1,6 @@
 import express from 'express';
-import cleanText from './cleaner.js';
 import scrapeWeb from './scraper.js';
+import cleanText from './cleaner.js';
 import countWordOccurrences from './wordcounter.js';
 
 const api = express();
