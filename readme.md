@@ -8,6 +8,7 @@
 - enable product sets inputs
 - avoid processing identical URLs by using a cache
 - increase scraper efficiency
+- add dotenv and tests
 
 ## Features
 #### scraper.js + cleaner.js
