@@ -1,25 +1,43 @@
 import { JSDOM } from 'jsdom';
 
 const url_test = 'https://www.amazon.com/gp/product/B00VVOCSOU';
-const selector1 = '#productDescription.a-section.a-spacing-small';
-const selector2 = 'p';
+const selector = '#productDescription.a-section.a-spacing-small > p > span';
 
 async function scrapeWeb(url) {
   try {
-    
+
     const response = await fetch(url)
+
     const html = await response.text()
-    const dom = new JSDOM(html);
+    // const dom = new JSDOM(await response.arrayBuffer());
+
+    /****************************************************/
+
+    const dom = new JSDOM(html, {
+
+      // Config to avoid parsing CSS
+      resources: new JSDOM.ResourceLoader({
+        fetch(url, options) {
+          if (url.endsWith('.css')) {
+            return Promise.resolve(Buffer.from(''));
+          }
+          return JSDOM.ResourceLoader.defaultFetch(url, options);
+        }
+      }),
+      runScripts: "dangerously",
+    });
+
+    /****************************************************/
 
     const document = dom.window.document;
-    const productDescriptionDiv = document.querySelector(selector1);
-    
-    if (productDescriptionDiv) {
-      
-      const productDescriptionP = productDescriptionDiv.querySelector(selector2);
-      const productDescriptionContent = productDescriptionP.textContent.trim();
+
+    const productDescriptionElement = document.querySelector(selector);
+
+    if (productDescriptionElement) {
+
+      const productDescriptionContent = productDescriptionElement.textContent.trim();
       console.log(productDescriptionContent);
-      
+
     } else {
       console.log('El elemento no se encontró');
     }
@@ -29,5 +47,9 @@ async function scrapeWeb(url) {
   }
 }
 
-// const texto = await scrapeWeb(url_test);
-// console.log(texto);
+const texto = await scrapeWeb(url_test);
+console.log(texto);
+
+
+
+

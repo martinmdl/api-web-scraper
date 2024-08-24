@@ -1,8 +1,7 @@
-import { launch } from "puppeteer";
+import { launch } from 'puppeteer';
 
-const url_test = 'https://www.amazon.com/gp/product/B00TRQPVKM';
-const selector = 'div#productDescription.a-section.a-spacing-small';
-// const selector = 'div#productDescription.a-section.a-spacing-small > p > span';
+const url_test = 'https://www.amazon.com/gp/product/B00SMBFZNG';
+const selector = 'div#productDescription.a-section.a-spacing-small > p';
 
 export default async function scrapeWeb(url) {
 
@@ -27,5 +26,5 @@ export default async function scrapeWeb(url) {
     }
 }
 
-// const texto = await webScraper(url_test);
-// console.log(texto);
+const texto = await scrapeWeb(url_test)
+console.log(texto)
