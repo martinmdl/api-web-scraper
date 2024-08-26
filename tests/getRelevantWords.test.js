@@ -1,13 +1,13 @@
 import test from 'ava';
-import getRelevantWords from '../features/cleaner.js';
+import getRelevantWords from '../features/getRelevantWords.js';
 
-test('Removes punctuation/symbols', t => {
+test('Removes punctuation/symbols and returns an array of strings', t => {
 
     const text = '(hello. $- # / _ .sirius software:software)';
     const actual = getRelevantWords(text);
-    const expected = 'hello sirius software software'
+    const expected = ['hello', 'sirius', 'software', 'software']
 
-    t.is(actual, expected);
+    t.deepEqual(actual, expected);
 
 });
 
@@ -15,19 +15,19 @@ test('Removes numbers', t => {
 
     const text = '1080pixels 16:9';
     const actual = getRelevantWords(text);
-    const expected = 'pixels'
+    const expected = ['pixels']
 
-    t.is(actual, expected);
+    t.deepEqual(actual, expected);
 
 });
 
 test('Removes one-letter words', t => {
 
-    const text = '1080p a I ';
+    const text = '1080p a I';
     const actual = getRelevantWords(text);
-    const expected = ''
+    const expected = ['']
 
-    t.is(actual, expected);
+    t.deepEqual(actual, expected);
 
 });
 
@@ -35,9 +35,9 @@ test('Removes big blanks', t => {
 
     const text = '  hello   sirius    ';
     const actual = getRelevantWords(text);
-    const expected = 'hello sirius'
+    const expected = ['hello', 'sirius']
 
-    t.is(actual, expected);
+    t.deepEqual(actual, expected);
 
 });
 
@@ -45,9 +45,9 @@ test('Removes most common stopwords', t => {
 
     const text = 'the world is a place with a lot of animals';
     const actual = getRelevantWords(text);
-    const expected = 'world place lot animals'
+    const expected = ['world', 'place', 'lot', 'animals']
 
-    t.is(actual, expected);
+    t.deepEqual(actual, expected);
 
 });
 
@@ -57,7 +57,7 @@ test('Empty string input returns null', t => {
     const actual = getRelevantWords(text);
     const expected = null
 
-    t.is(actual, expected);
+    t.deepEqual(actual, expected);
 
 });
 

@@ -1,5 +1,12 @@
 import { removeStopwords } from 'stopword';
 
+/**
+ * Identify relevant words in a text.
+ *
+ * @param {string} originalText - Text to clean and extract words from.
+ * @returns {array} - Array containing relevant words.
+ */
+
 export default function getRelevantWords(originalText) {
     
     if (!originalText) return null

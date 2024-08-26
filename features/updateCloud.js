@@ -1,3 +1,12 @@
+/**
+ * Count new single words occurrences,
+ * calculate their weights inside the total number of occurrences
+ * and push changes into the global variable 'cloud'.
+ * 
+ * @param {array} words - Words to count and add to the cloud.
+ * @param {object} cloud - Words, occurrences, weights and totalWordOcurrences to power a word-cloud.
+ */
+
 export default function updateCloud(words, cloud) {
 
     if (!words) return null;
@@ -15,7 +24,7 @@ export default function updateCloud(words, cloud) {
             
             partialCloudItem = { // "newPartialCloudItem"
                 word: word,
-                occurrencies: 1
+                occurrences: 1
             };
             
             // partialCloud.wordDetails ??= [];

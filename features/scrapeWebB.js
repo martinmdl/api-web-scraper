@@ -1,6 +1,13 @@
 import { launch } from 'puppeteer';
 
-export default async function scrapeWeb(url) {
+/**
+ * Extract the 'product description' from a given Amazon product web.
+ *
+ * @param {string} url - URL whose product description we want to scrape.
+ * @returns {string} - Product description paragraph.
+ */
+
+export default async function scraperWebB(url) {
     
     const browser = await launch({ args: ['--lang=en-US'] });
     const page = await browser.newPage();
