@@ -1,9 +1,14 @@
 import express from 'express';
 import scrapeWeb from './features/scraper.js';
-import cleanText from './features/cleaner.js';
-import countWordOccurrences from './features/wordcounter.js';
+import getRelevantWords from './features/cleaner.js';
+import updateCloud from './features/updateCloud.js';
 
 const api = express();
+
+const cloud = {
+    wordDetails : [],
+    totalWordOcurrencies : 0
+}
 
 api.get('/', (req, res) => {
     res.send('WORKING')
@@ -12,10 +17,10 @@ api.get('/', (req, res) => {
 api.post('/', async (req, res) => {
 
     const amazonUrl = req.query.productUrl;
-    const originalProductDescription = await scrapeWeb(amazonUrl);
-    const productDescription = cleanText(originalProductDescription);
-    const wordsOccurrences = countWordOccurrences(productDescription);
-    res.send(wordsOccurrences);
+    const productDescription = await scrapeWeb(amazonUrl);
+    const descriptionWords = getRelevantWords(productDescription);
+    updateCloud(descriptionWords, cloud);
+    res.send(cloud);
 
 });
 

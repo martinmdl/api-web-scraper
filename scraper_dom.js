@@ -9,25 +9,12 @@ async function scrapeWeb(url) {
     const response = await fetch(url)
 
     const html = await response.text()
-    // const dom = new JSDOM(await response.arrayBuffer());
 
-    /****************************************************/
+    html.replace( regex, '')
+    // eliminar <style> h1 { color: red } </style>
+    // <h1 style="">
 
-    const dom = new JSDOM(html, {
-
-      // Config to avoid parsing CSS
-      resources: new JSDOM.ResourceLoader({
-        fetch(url, options) {
-          if (url.endsWith('.css')) {
-            return Promise.resolve(Buffer.from(''));
-          }
-          return JSDOM.ResourceLoader.defaultFetch(url, options);
-        }
-      }),
-      runScripts: "dangerously",
-    });
-
-    /****************************************************/
+    const dom = new JSDOM(html)
 
     const document = dom.window.document;
 

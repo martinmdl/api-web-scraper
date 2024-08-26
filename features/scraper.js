@@ -25,6 +25,3 @@ export default async function scrapeWeb(url) {
 
     }
 }
-
-const texto = await scrapeWeb(url_test)
-console.log(texto)

@@ -23,4 +23,11 @@ npm install
 npm start
 ./three_requests.sh localhost 3000 productUrl 6
 ```
-
+## Script code
+```
+./simulateRequests.sh <SERVER> <PORT> <PARAM> <SLEEP_TIME>
+chmod +x simulateRequests.sh
+chmod +x three_requests.sh
+./simulateRequests.sh localhost 3000 productUrl 6
+./three_requests.sh localhost 3000 productUrl 6
+```
