@@ -1,4 +1,5 @@
 import { JSDOM } from 'jsdom';
+import ValidationError from '../app.js'
 
 /**
  * Extract the 'product description' from a given Amazon product web.
@@ -26,9 +27,10 @@ export default async function scrapeWeb(url) {
       const productDescriptionContent = productDescriptionElement.textContent.trim();
       return productDescriptionContent;
 
-    } else return null;  
+    }
+    
+    throw new ValidationError('The Product Description was not found');
 }
 
 // const url_test = 'https://www.amazon.com/gp/product/B00VVOCSOU'
-// const text = await scrapeWeb(url_test)
-// console.log(text)
+// console.log(await scrapeWeb(url_test))

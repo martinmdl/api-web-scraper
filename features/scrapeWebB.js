@@ -29,3 +29,7 @@ export default async function scraperWebB(url) {
 
     }
 }
+
+// const url_test = 'https://www.amazon.com/gp/product/B00VVOCSOU'
+// const text = await scrapeWeb(url_test)
+// console.log(text)

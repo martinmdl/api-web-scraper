@@ -18,7 +18,13 @@ export default function getRelevantWords(originalText) {
         .trim() // remove big spaces
         .split(/\s+/);
     
+    console.log(cleanWords)
+
     cleanWords = removeStopwords(cleanWords)
 
     return cleanWords;
 }
+
+// const text = "hello sirius software software"
+// const text1 = ""
+// console.log(getRelevantWords(text1))

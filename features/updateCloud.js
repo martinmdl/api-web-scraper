@@ -9,8 +9,6 @@
 
 export default function updateCloud(words, cloud) {
 
-    if (!words) return null;
-
     const partialCloud = {};
 
     for (const word of words) {
@@ -31,7 +29,7 @@ export default function updateCloud(words, cloud) {
             // partialCloud.wordDetails.push(partialCloudItem);
             (partialCloud.wordDetails ??= []).push(partialCloudItem);
 
-        } else partialCloudItem.occurrences + 1;
+        } else partialCloudItem.occurrences + 1; // debugear con fran
 
         // GLOBAL CLOUD
         // Add an existing partial-cloud item to global-cloud || Sum occurrences to an existing occurrence log
@@ -45,53 +43,19 @@ export default function updateCloud(words, cloud) {
 
     }
 
-    // cloud.totalWordOccurrences ??= 0;
-    // cloud.totalWordOccurrences += words.length;
-    cloud.totalWordOccurrences = (cloud.totalWordOccurrences || 0) + words.length; 
+    cloud.totalWordOccurrences = (cloud.totalWordOccurrences || 0) + words.length; // sea crea 'occurrencies'
 
     cloud.wordDetails.forEach(item => {
-        item.weight = item.occurrences / cloud.totalWordOccurrences}
-    );
-
+        item.weight = item.occurrences / cloud.totalWordOccurrences;
+    }); // se crean weights en ambas clouds
 }
 
-// CLOUD
-// cloud = {
-//     wordDetails: [
-//         {
-//             word: '',
-//             occurrences: 0,
-//         }
-//     ],
-//     totalWordOccurrences: 0
+// const words_test = [];
+// // const words_test = ['software', 'software', 'hello', 'world', 'hello'];
+// const cloud_test = {
+//     wordDetails : [],
+//     // totalWordOccurrences : 0
 // }
 
-// PARTIAL CLOUD
-// cloud = {
-//     wordDetails: [
-//         {
-//             word: '',
-//             occurrences: 0,
-//         }
-//     ],
-//     totalWordOccurrences: 0
-// }
-
-
-// {
-//     wordDetails: [
-//         {
-//             word: "Hola",
-//             occurrences: 2,
-//         },
-//         {
-//             word: "Chau",
-//             occurrences: 1,
-//         },
-//         {
-//             word: "Milanesa",
-//             occurrences: 3,
-//         }
-//     ],
-//     totalWordOccurrences: 0
-// }
+// updateCloud(words_test, cloud_test)
+// console.log(cloud_test)
