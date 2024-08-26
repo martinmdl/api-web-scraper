@@ -11,7 +11,7 @@ const cloud = {
 }
 
 api.get('/', (req, res) => {
-    res.send('WORKING')
+    res.send('Web Crawler');
 })
 
 api.post('/', async (req, res) => {
