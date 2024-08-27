@@ -15,7 +15,7 @@ const cloud = {
 
 const fetchedURLs = []
 
-api.post('/', async (req, res, next) => {
+api.get('/', async (req, res, next) => {
     try {
 
         const productUrl = req.query.productUrl;

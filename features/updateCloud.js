@@ -24,6 +24,8 @@ export default function updateCloud(words, cloud) {
     cloud.totalWordOccurrences += words.length;
 
     cloud.wordDetails.forEach(item => {
-        item.weight = (item.occurrences / cloud.totalWordOccurrences).toFixed(3);
+        item.weight = parseFloat((item.occurrences / cloud.totalWordOccurrences).toFixed(3));
     });
+
+    cloud.wordDetails.sort((a, b) => b.occurrences - a.occurrences);
 }
