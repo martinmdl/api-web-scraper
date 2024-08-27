@@ -1,6 +1,14 @@
 import test from 'ava';
 // import updateCloud from '../features/updateCloud.js';
 
+// const words = ['hello', 'sirius', 'software', 'software']
+// const cloud = {
+//     wordDetails : [],
+//     totalWordOccurrences : 0
+// }
+// updateCloud(words, cloud)
+// console.log(cloud)
+
 // test('Counts numbers ocurrences', t => {
 
 //     const text = '11 22 22';

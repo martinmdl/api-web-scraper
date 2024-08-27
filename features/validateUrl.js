@@ -1,15 +1,14 @@
 /**
- * Check if the URL has already been fetched.
+ * COMPLETAR //////////////////////////
  * 
  * @param {string} url - Current URL to validate.
  * @param {array} fetchedURLs - List of fetched URLs.
- * @return {boolean} - true: not fetched; false: already fetched
  */
 
 export default function validateUrl(url, fetchedURLs) {
 
-    if (fetchedURLs.includes(url)) return false;
+    if (fetchedURLs.includes(url))
+        throw new ValidationError(`${amazonUrl} has already been fetched.`);
 
     fetchedURLs.push(url);
-    return true;
 }
