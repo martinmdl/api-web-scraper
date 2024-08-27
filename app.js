@@ -37,12 +37,8 @@ api.post('/', async (req, res, next) => {
 });
 
 api.use((err, req, res, next) => {
-    console.error(err.stack);
     res.status(err.status || 500);
-    res.json({
-        message: err.message || 'Server error.',
-        stack: err.stack || ''
-    });
+    res.json({ stack: err.stack || '' });
 });
 
 const port = 3000;

@@ -10,7 +10,7 @@ import ValidationError from '../exceptions/validationError.js'
 export default function validateUrl(url, fetchedURLs) {
 
     if (fetchedURLs.includes(url))
-        throw new ValidationError(`${amazonUrl} has already been fetched.`);
+        throw new ValidationError(`${url} has already been fetched.`);
 
     fetchedURLs.push(url);
 }
