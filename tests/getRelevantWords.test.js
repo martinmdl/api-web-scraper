@@ -1,5 +1,6 @@
 import test from 'ava';
 import getRelevantWords from '../features/getRelevantWords.js';
+import ValidationError from '../exceptions/validationError.js';
 
 test('Removes punctuation/symbols and returns an array of strings', t => {
 
@@ -8,7 +9,6 @@ test('Removes punctuation/symbols and returns an array of strings', t => {
     const expected = ['hello', 'sirius', 'software', 'software']
 
     t.deepEqual(actual, expected);
-
 });
 
 test('Removes numbers', t => {
@@ -18,7 +18,6 @@ test('Removes numbers', t => {
     const expected = ['pixels']
 
     t.deepEqual(actual, expected);
-
 });
 
 test('Removes one-letter words', t => {
@@ -28,7 +27,6 @@ test('Removes one-letter words', t => {
     const expected = ['']
 
     t.deepEqual(actual, expected);
-
 });
 
 test('Removes big blanks', t => {
@@ -38,7 +36,6 @@ test('Removes big blanks', t => {
     const expected = ['hello', 'sirius']
 
     t.deepEqual(actual, expected);
-
 });
 
 test('Removes most common stopwords', t => {
@@ -48,35 +45,28 @@ test('Removes most common stopwords', t => {
     const expected = ['world', 'place', 'lot', 'animals']
 
     t.deepEqual(actual, expected);
-
 });
 
-test('Empty string input returns null', t => {
+test('Throws ValidationError for undefined input', t => {
+    const error = t.throws(() => {
+        getRelevantWords(undefined);
+    }, { instanceOf: ValidationError });
 
-    const text = '';
-    const actual = getRelevantWords(text);
-    const expected = null
-
-    t.deepEqual(actual, expected);
-
+    t.is(error.message, 'The text was blank');
 });
 
-test('null input returns null', t => {
+test('Throws ValidationError for null input', t => {
+    const error = t.throws(() => {
+        getRelevantWords(null);
+    }, { instanceOf: ValidationError });
 
-    const text = null;
-    const actual = getRelevantWords(text);
-    const expected = null
-
-    t.is(actual, expected);
-
+    t.is(error.message, 'The text was blank');
 });
 
-test('undefined input returns null', t => {
+test('Throws ValidationError for empty string input', t => {
+    const error = t.throws(() => {
+        getRelevantWords('');
+    }, { instanceOf: ValidationError });
 
-    const text = undefined;
-    const actual = getRelevantWords(text);
-    const expected = null
-
-    t.is(actual, expected);
-
+    t.is(error.message, 'The text was blank');
 });
