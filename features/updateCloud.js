@@ -1,7 +1,6 @@
 /**
- * Count new single words occurrences,
- * calculate their weights inside the total number of occurrences
- * and push changes into the global variable 'cloud'.
+ * Add new words occurrences to the cloud,
+ * calculate their weights inside the total number of occurrences.
  * 
  * @param {array} words - Words to count and add to the cloud.
  * @param {object} cloud - Words, occurrences, weights and totalWordOcurrences to power a word-cloud.

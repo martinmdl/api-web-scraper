@@ -1,5 +1,5 @@
 /**
- * COMPLETAR //////////////////////////
+ * Check if a URL has been used before or not.
  * 
  * @param {string} url - Current URL to validate.
  * @param {array} fetchedURLs - List of fetched URLs.
