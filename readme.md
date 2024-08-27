@@ -1,33 +1,37 @@
-## Objectives
-- ~~scrape paragraph with Puppeteer~~
-- ~~clean description using JS regex~~
-- ~~run an endpoint with Express~~
-- ~~use URLs from the given script~~
-- store the product descriptions (singleton/cache)
-- graphic the word-cloud
-- enable product sets inputs
-- avoid processing identical URLs by using a cache
-- increase scraper efficiency
-- add dotenv and tests
+# AmazonScraper
 
-## Features
-#### scraper.js + cleaner.js
-<img src="https://github.com/user-attachments/assets/026f00b4-ce84-4afc-b032-dd90ec7b5572" />
+## 📃 Description
 
-#### running script
-https://github.com/user-attachments/assets/17127a96-33e7-4ba8-bae2-b7503fa4a189
+This RESTful API allows the client to generate and get a JavaScript object, containing processed Amazon product description words to power a WordCloud, by providing a set of POST requests using a script
+(e.g. [simulateRequests.sh](https://gist.github.com/tovbinm/f904fc4a29246b2c8b21d0361e259d8b)) or single requests (via postman, single curl calls, etc.).
+If the set contains a URL without a product description, this endpoint will show a 400 status (http code for client errors) and continue with the next URL.
+The same happens if there are repeated URLs in the set, it shows code 400 and continue. None of this input sets leads to interrupting the process.
+The object to power the WordCloud has this shape:
+```
+{
+  wordDetails: [ // words in descending order by occurrence
+    {
+      word: "Hello", // word string
+      occurrences: 2, // number of this word occurrences 
+      weight: 0.666 // percentage of this word occurrences in the set
+    },
+    {
+      word: "Sirius",
+      occurrences: 1,
+      weight: 0.333
+    }
+  ],
+  totalWordOccurrences: 3 // number of total occurrences
+}
+```
 
-## Run code
+## 👨‍💻 Authors
+
+- Martín De Lojo ([GitHub](https://www.github.com/martinmdl) - [LinkedIn](https://www.linkedin.com/in/martinmdl/))
+
+## 💾 Run code
 ```
 npm install
 npm start
-./three_requests.sh localhost 3000 productUrl 6
-```
-## Script code
-```
-./simulateRequests.sh <SERVER> <PORT> <PARAM> <SLEEP_TIME>
-chmod +x simulateRequests.sh
-chmod +x three_requests.sh
-./simulateRequests.sh localhost 3000 productUrl 6
-./three_requests.sh localhost 3000 productUrl 6
+./requests.sh localhost 3000 productUrl 4
 ```
