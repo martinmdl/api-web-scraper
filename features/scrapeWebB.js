@@ -1,6 +1,7 @@
 /* DEPRECATED */
 
 import { launch } from 'puppeteer';
+import ValidationError from '../exceptions/validationError.js'
 
 /**
  * Extract the 'product description' from a given Amazon product web.
@@ -18,12 +19,12 @@ export default async function scraperWebB(url) {
     const selector = 'div#productDescription.a-section.a-spacing-small > p';
     const productDescriptionElement = await page.$(selector);
     
-    if (productDescriptionElement) {
-        const productDescriptionContent = await productDescriptionElement.evaluate(element => element.textContent);
+    if (!productDescriptionElement) {        
         await browser.close();
-        return productDescriptionContent;
-    } else {
-        console.log('This product does not have a description');
-        await browser.close();
+        throw new ValidationError('The Product Description was not found');
     }
+
+    const productDescriptionContent = await productDescriptionElement.evaluate(element => element.textContent);
+    await browser.close();
+    return productDescriptionContent;
 }
