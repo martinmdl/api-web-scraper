@@ -40,7 +40,7 @@ api.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(err.status || 500);
     res.json({
-        message: err.message || 'Ocurrió un error en el servidor.',
+        message: err.message || 'Server error.',
         stack: err.stack || ''
     });
 });
