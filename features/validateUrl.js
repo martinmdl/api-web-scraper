@@ -1,3 +1,5 @@
+import ValidationError from '../exceptions/validationError.js'
+
 /**
  * Check if a URL has been used before or not.
  * 
